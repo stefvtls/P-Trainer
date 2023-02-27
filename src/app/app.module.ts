@@ -8,6 +8,7 @@ import { LandingPage } from './pages/landing/landing.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,8 +22,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
   imports: [ // modules
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

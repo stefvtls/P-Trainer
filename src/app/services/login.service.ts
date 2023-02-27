@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { map, switchMap, of, Observable } from "rxjs"
+import { map, switchMap, of, tap, Observable } from "rxjs"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Trainer } from '../components/models/trainer.model';
 import { environment } from 'src/environments/environment';
+import { StorageUtil } from '../utils/storage.utils';
+import { StorageKeys } from '../enums/storage-keys.enum';
 
 const { apiTrainers, apiKey} = environment;
 
@@ -15,6 +17,7 @@ export class LoginService {
   constructor(private readonly http: HttpClient) { }
 
 
+  // login logic
   public login(username: string): Observable<Trainer>{
     return this.checkTrainer(username)
     .pipe(
@@ -23,6 +26,12 @@ export class LoginService {
           return this.createTrainer(username);
         }
         return of(trainer);
+      }),
+      tap((trainer: Trainer) => {
+
+        StorageUtil.localStorageSave<Trainer>(StorageKeys.Trainer, trainer);
+        console.log(StorageKeys.Trainer)
+        console.log(trainer);
       })
     )
   }
