@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { LandingPage } from './pages/landing/landing.page';
@@ -10,16 +11,18 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 
 
 @NgModule({
-  declarations: [
+  declarations: [ // components
     AppComponent,
     LandingPage,
     TrainerPage,
     CataloguePage,
     LoginFormComponent
   ],
-  imports: [
+  imports: [ // modules
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
