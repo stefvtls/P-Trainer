@@ -14,12 +14,12 @@ export class TrainerService {
   }
 
   set trainer(trainer: Trainer | undefined) {
-    StorageUtil.localStorageSave<Trainer>(StorageKeys.Trainer, trainer!);
+    StorageUtil.sessionStorageSave<Trainer>(StorageKeys.Trainer, trainer!);
     this._trainer = trainer;
   }
 
   constructor() { 
-    this._trainer = StorageUtil.localStorageRead<Trainer>(StorageKeys.Trainer);
+    this._trainer = StorageUtil.sessionStorageRead<Trainer>(StorageKeys.Trainer);
     
   }
 }

@@ -7,7 +7,7 @@ import { TrainerService } from 'src/app/services/trainer.service';
 
 
 @Component({
-  selector: 'app-login-form',
+  selector: 'login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
