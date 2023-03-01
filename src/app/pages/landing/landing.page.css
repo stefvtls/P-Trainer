@@ -13,6 +13,8 @@
     filter: grayscale(30%);
 }
 
+
+
 login-form {
 
     backdrop-filter: blur(8px);
@@ -29,8 +31,12 @@ login-form {
     justify-content: center;
     align-items: center;
 
-    color: rgb(224, 205, 205);
-    font-size: x-large;
+    transition: var(--ANIMATION);
+
+}
+
+login-form:hover {
+    box-shadow: 0 0 100px var(--TRANSPARENCY3);
 }
 
 

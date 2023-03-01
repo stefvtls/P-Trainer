@@ -1,10 +1,24 @@
 .transparent {
     background-color: black;
     width: 100%;
+    transition: var(--ANIMATION);
     color: rgb(224, 205, 205);
-    
+    font-size: x-large;
 }
 
 .transparent:hover {
     outline-color: red;
 }
+
+.btn:hover {
+    background-color: red;
+    letter-spacing: .1rem;
+
+}
+
+label {
+    text-shadow: 5px 5px 10px #000;
+    color: rgb(224, 205, 205);
+    font-size: x-large;
+}
+
