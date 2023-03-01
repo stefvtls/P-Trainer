@@ -9,6 +9,7 @@ import { TrainerPage } from './pages/trainer/trainer.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     LandingPage,
     TrainerPage,
     CataloguePage,
-    LoginFormComponent
+    LoginFormComponent,
+    PokemonListComponent
   ],
   imports: [ // modules
     BrowserModule,

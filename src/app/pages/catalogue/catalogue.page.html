@@ -1,1 +1,4 @@
-<p>catalogue works!</p>
+<main>
+    <p *ngIf="loading"> Loading Pokemons... </p>
+    <pokemon-list [pokemons]="pokemons"></pokemon-list>
+</main>
