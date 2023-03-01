@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --TRANSPARENCY1:  hsla(0, 4%, 5%, 0.01);
+    --TRANSPARENCY2:hsla(0, 0%, 100%, 0.4);
+}
