@@ -12,7 +12,7 @@ export class TrainerService {
 
   get trainer(): Trainer | undefined {
     return this._trainer;
-    // return StorageUtil.sessionStorageRead<Trainer>(StorageKeys.Trainer);
+
   }
 
   set trainer(trainer: Trainer | undefined) {
@@ -41,7 +41,6 @@ export class TrainerService {
   public catchPokemon(pokemon: Pokemon): void {
     if (this._trainer) {
       this._trainer.pokemon.push(pokemon);
-      // StorageUtil.sessionStorageSave<Trainer>(StorageKeys.Trainer, this._trainer);
     }
 
   }
@@ -49,7 +48,6 @@ export class TrainerService {
   public releasePokemon(pokemonId: number): void {
     if (this._trainer) {
       this._trainer.pokemon = this._trainer.pokemon.filter((pokemon: Pokemon) => pokemon.id !== pokemonId);
-      // StorageUtil.sessionStorageSave<Trainer>(StorageKeys.Trainer, this._trainer);
     }
 
   }

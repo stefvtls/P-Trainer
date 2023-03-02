@@ -3,8 +3,7 @@ import { map, switchMap, of, tap, Observable } from "rxjs"
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Trainer } from '../components/models/trainer.model';
 import { environment } from 'src/environments/environment';
-// import { StorageUtil } from '../utils/storage.utils';
-// import { StorageKeys } from '../enums/storage-keys.enum';
+
 
 const { apiTrainers, apiKey} = environment;
 
@@ -27,12 +26,6 @@ export class LoginService {
         }
         return of(trainer);
       })
-      // ,tap((trainer: Trainer) => {
-
-      //   StorageUtil.localStorageSave<Trainer>(StorageKeys.Trainer, trainer);
-      //   console.log(StorageKeys.Trainer)
-      //   console.log(trainer);
-      // })
     )
   }
 

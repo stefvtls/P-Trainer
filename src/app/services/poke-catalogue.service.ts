@@ -4,7 +4,7 @@ import { finalize } from 'rxjs';
 import { Pokemon, PokeApiResponse, PokemonApiResponse } from '../components/models/pokemon.model';
 
 
-const apiPoke = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000"
+const apiPoke = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1200"
 
 
 @Injectable({
