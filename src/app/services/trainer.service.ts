@@ -11,6 +11,7 @@ export class TrainerService {
   private _trainer?: Trainer;
 
   get trainer(): Trainer | undefined {
+    // console.log("checked:", this._trainer)
     return this._trainer;
   }
 

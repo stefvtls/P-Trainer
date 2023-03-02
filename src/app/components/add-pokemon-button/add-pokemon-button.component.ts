@@ -12,13 +12,15 @@ import { Trainer } from '../models/trainer.model';
 })
 export class AddPokemonButtonComponent {
 
+  public loading: boolean = false;
+
   public isCatched: boolean = false;
 
   @Input() pokemonId!: number;
 
-  get loading(): boolean {
-    return this.catchedService.loading;
-  }
+  // get loading(): boolean {
+  //   return this.catchedService.loading;
+  // }
 
   constructor(
     private readonly catchedService: CatchedService,
@@ -33,9 +35,11 @@ export class AddPokemonButtonComponent {
 
   // display a message if pokemon has been caught and saved 
   addPokemon(): void {
+    this.loading = true;
     this.catchedService.saveCatchedPokemon(this.pokemonId)
     .subscribe({
       next: (trainer: Trainer) => {
+        this.loading = false;
         this.isCatched = this.trainerService.isAlreadyCatched(this.pokemonId);
       }, 
       error: (error: HttpErrorResponse) => {

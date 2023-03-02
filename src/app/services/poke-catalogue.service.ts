@@ -35,6 +35,13 @@ export class PokeCatalogueService {
 
 
   public findAllPokemon(): void {
+
+    // fetched cached data from poke API
+    if (this._pokemons.length > 0 || this._loading === true) {
+      return;
+    }
+
+
     this._loading = true;
     this.http.get<PokeApiResponse>(apiPoke)
     .pipe(

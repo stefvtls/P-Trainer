@@ -15,11 +15,13 @@ const { apiKey, apiTrainers} =  environment;
 export class CatchedService {
 
   
-  private _loading: boolean = false;
+  // private _loading: boolean = false;
+
+
   // getter
-  get loading(): boolean{
-    return this._loading;
-  }
+  // get loading(): boolean{
+  //   return this._loading;
+  // }
 
   constructor(
     private readonly http: HttpClient,
@@ -52,7 +54,7 @@ export class CatchedService {
     })
 
 
-    this._loading = true;
+    // this._loading = true;
     return this.http.patch<Trainer>(
       `${apiTrainers}/${trainer.id}`,
       {pokemon: [...trainer.pokemon]}, //updated trainer
@@ -60,7 +62,7 @@ export class CatchedService {
         tap((updatedTrainer: Trainer) => {
           this.trainerService.trainer = updatedTrainer;
         }),
-        finalize(()=>this._loading = false)
+        // finalize(()=>this._loading = false)
       )
 
       
