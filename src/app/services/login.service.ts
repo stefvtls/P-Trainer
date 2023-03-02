@@ -44,7 +44,6 @@ export class LoginService {
       )
   }
 
-
   // POST
   private createTrainer(username: string): Observable<Trainer> {
 

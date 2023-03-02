@@ -1,1 +1,9 @@
-<p>catalogue works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let poke of pokemonList()">
+      <br>
+      <app-pokemon-card [data]="poke"></app-pokemon-card>
+    </div>
+  </div>
+</div>
+
