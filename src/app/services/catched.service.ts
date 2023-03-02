@@ -14,14 +14,6 @@ const { apiKey, apiTrainers} =  environment;
 })
 export class CatchedService {
 
-  
-  // private _loading: boolean = false;
-
-
-  // getter
-  // get loading(): boolean{
-  //   return this._loading;
-  // }
 
   constructor(
     private readonly http: HttpClient,
@@ -35,7 +27,7 @@ export class CatchedService {
       throw new Error("the trainer does not exist in our database");
     } 
 
-    const trainer: Trainer = this.trainerService.trainer;
+    let trainer: Trainer = this.trainerService.trainer;
     const pokemon: Pokemon | undefined = this.pokeCatalogue.pokemonById(pokemonId);
 
     if (!pokemon) {
@@ -44,13 +36,14 @@ export class CatchedService {
 
     if (this.trainerService.isAlreadyCatched(pokemonId)) {
       this.trainerService.releasePokemon(pokemonId);
+
     } else {
       this.trainerService.catchPokemon(pokemon);
     }
 
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
-      "x-api-key": apiKey
+      "x-api-key": apiKey as string
     })
 
 
@@ -62,7 +55,6 @@ export class CatchedService {
         tap((updatedTrainer: Trainer) => {
           this.trainerService.trainer = updatedTrainer;
         }),
-        // finalize(()=>this._loading = false)
       )
 
       

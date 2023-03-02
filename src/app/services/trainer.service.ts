@@ -12,7 +12,6 @@ export class TrainerService {
 
   get trainer(): Trainer | undefined {
     return this._trainer;
-    // return StorageUtil.sessionStorageRead<Trainer>(StorageKeys.Trainer);
   }
 
   set trainer(trainer: Trainer | undefined) {

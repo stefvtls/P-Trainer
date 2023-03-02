@@ -8,9 +8,15 @@
         #username="ngModel"
         name="username" 
         id="username" 
+        required 
+        minlength="2" 
         class="form-control transparent" placeholder="username"/>
     </fieldset>
+
     <button type="submit" class="btn btn-outline-danger btn-lg transparent"> Login </button>
-
-
+    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <br>
+        <div *ngIf="username.errors?.['required']"><p>Username is required </p> </div>
+        <div *ngIf="username.errors?.['minlength']"> <p>Your username has to be at least 2 characters </p></div>
+    </div>
 </form>

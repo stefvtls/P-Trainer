@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiTrainers: process.env.ANGULAR_APP_API_URL,
-    apiKey: process.env.ANGULAR_APP_API_KEY
+    apiTrainers: "https://json-server-noroff.up.railway.app/trainers",
+    apiKey: "process.env['ANGULAR_APP_API_KEY']"
 };
