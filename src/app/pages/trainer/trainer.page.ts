@@ -10,8 +10,14 @@ import { TrainerService } from 'src/app/services/trainer.service';
 })
 export class TrainerPage {
 
+
+
   get trainer(): Trainer | undefined {
-    return this.trainerService.trainer;
+    if (this.trainerService.trainer) {
+      return this.trainerService.trainer
+  } else {
+    return undefined;
+  }
   }
 
   get catched(): Pokemon[] {
@@ -21,7 +27,6 @@ export class TrainerPage {
       return [];
     }
   }
-
   constructor( private trainerService: TrainerService) {}
 
 

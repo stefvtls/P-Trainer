@@ -38,7 +38,6 @@ export class AddPokemonButtonComponent {
   // display a message if pokemon has been caught and saved 
   addPokemon(): void {
     this.loading = true;
-
     if (this.trainerService.trainer) {
       this.catchedService.saveCatchedPokemon(this.pokemonId)
       .subscribe({
@@ -55,6 +54,7 @@ export class AddPokemonButtonComponent {
       } else {
         alert("catched!");  
       }
+      
     } else {
       alert("sorry, something went wrong and you were logged out. please log back in");
       this.router.navigateByUrl("/")

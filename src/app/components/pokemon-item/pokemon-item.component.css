@@ -1,0 +1,16 @@
+.card {
+    margin: 2rem;
+    padding: 1rem;
+
+    backdrop-filter: blur(8px);
+    background-color: rgb(216, 216, 214);
+    border-radius: 20px;
+    border: 2px solid rgb(189, 190, 179);
+    box-shadow: 10px 10px 60px 1px rgb(145, 132, 132);
+
+
+    filter: drop-shadow(10px 6px 10px rgba(69, 77, 78, 0.15));
+
+    background-image: linear-gradient(to bottom, rgba(230, 196, 105, 0.829) 10%, rgba(224, 215, 215, 0.99));
+
+}

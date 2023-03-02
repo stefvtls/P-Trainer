@@ -16,11 +16,13 @@ export class NavbarComponent {
 
   constructor(
     private readonly trainerService: TrainerService,
-    private readonly router: Router,) {}
+    private readonly router: Router
+    ) {}
 
   logout() {
+    this.trainerService.trainer = undefined;
     this.trainerService.clearTrainer();
-    this.router.navigateByUrl("/login")
+    this.router.navigateByUrl("/login");
   }
 
 }

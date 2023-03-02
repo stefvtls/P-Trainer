@@ -30,7 +30,7 @@ export class CatchedService {
   ) {}
 
   public saveCatchedPokemon(pokemonId: number): Observable<Trainer> {
-
+    
     if (!this.trainerService.trainer) {
       throw new Error("the trainer does not exist in our database");
     } 
