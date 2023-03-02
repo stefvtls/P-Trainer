@@ -24,7 +24,10 @@ export class LoginFormComponent {
   public loginSubmit(loginForm: NgForm): void {
 
     const { username } = loginForm.value;
-    console.log(username)
+
+    if (!username || username.length <2){
+      return;
+    }
 
     this.loginService.login(username)
       .subscribe({

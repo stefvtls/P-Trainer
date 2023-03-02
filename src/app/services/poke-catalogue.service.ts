@@ -2,6 +2,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize } from 'rxjs';
 import { Pokemon, PokeApiResponse, PokemonApiResponse } from '../components/models/pokemon.model';
+import { StorageKeys } from '../enums/storage-keys.enum';
+import { StorageUtil } from '../utils/storage.utils';
 
 
 const apiPoke = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000"
@@ -33,10 +35,19 @@ export class PokeCatalogueService {
 
   public findAllPokemon(): void {
 
+    if (this._pokemons.length == 0) {
+      if (StorageUtil.sessionStorageRead<Pokemon[]>(StorageKeys.Pokemons) !== undefined) {
+        this._pokemons = StorageUtil.sessionStorageRead<Pokemon[]>(StorageKeys.Pokemons) as Pokemon[];
+      }
+
+    }
+
     // fetched cached data from poke API
     if (this._pokemons.length > 0 || this._loading === true) {
       return;
     }
+
+  
 
 
     this._loading = true;
@@ -48,7 +59,7 @@ export class PokeCatalogueService {
     )
     .subscribe({
       next: (response => {
-        console.log(response.results);
+        // console.log(response.results);
           this._pokemons  = response.results.map(poke => {
           let urlArraySplitted = poke.url.split("/");
           let extractedId = Number(urlArraySplitted[(urlArraySplitted.length) - 2]);
@@ -58,8 +69,10 @@ export class PokeCatalogueService {
             url: poke.url,
             image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${extractedId}.png`,
           }
+          
           return pokemon;
         })
+        StorageUtil.sessionStorageSave<Pokemon[]>(StorageKeys.Pokemons, this._pokemons);
       }),
       error: (error: HttpErrorResponse) => {
         this._error = error.message;
