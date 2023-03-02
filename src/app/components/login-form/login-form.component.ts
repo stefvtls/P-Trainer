@@ -25,7 +25,7 @@ export class LoginFormComponent {
 
     const { username } = loginForm.value;
 
-    if (!username || username.length <2){
+    if (!username || username.length <3){
       return;
     }
 
