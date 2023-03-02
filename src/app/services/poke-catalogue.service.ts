@@ -62,4 +62,8 @@ export class PokeCatalogueService {
       }
     })
   }
+
+  public pokemonById(id: number): Pokemon | undefined {
+    return this._pokemons.find((pokemon: Pokemon ) => pokemon.id === id);
+  }
 }

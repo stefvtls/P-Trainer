@@ -1,3 +1,11 @@
  <aside>
-    <button (click)="addPokemon()">Catch him!</button>
+    <button (click)="addPokemon()">
+      <div *ngIf="!loading; else spinner">
+         <ng-container *ngIf="isCatched; then catched else free"> </ng-container>
+         <ng-template #catched> <span> ❌ remove </span></ng-template>
+         <ng-template #free> <span> ➕ add </span></ng-template>
+      </div>
+
+      <ng-template #spinner><span> ⏳ </span></ng-template>
+   </button> 
  </aside>
