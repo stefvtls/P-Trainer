@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { CatchedService } from 'src/app/services/catched.service';
 import { TrainerService } from 'src/app/services/trainer.service';
 import { Pokemon } from '../models/pokemon.model';
@@ -24,8 +25,9 @@ export class AddPokemonButtonComponent {
 
   constructor(
     private readonly catchedService: CatchedService,
-    private readonly trainerService: TrainerService
-  ) { }
+    private readonly trainerService: TrainerService,
+    private readonly router: Router
+  ) {}
 
 
   // checks if pokemon is already catched
@@ -36,19 +38,26 @@ export class AddPokemonButtonComponent {
   // display a message if pokemon has been caught and saved 
   addPokemon(): void {
     this.loading = true;
-    this.catchedService.saveCatchedPokemon(this.pokemonId)
-    .subscribe({
-      next: (trainer: Trainer) => {
-        this.loading = false;
-        this.isCatched = this.trainerService.isAlreadyCatched(this.pokemonId);
-      }, 
-      error: (error: HttpErrorResponse) => {
-        console.log("ERROR: ", error.message);
+
+    if (this.trainerService.trainer) {
+      this.catchedService.saveCatchedPokemon(this.pokemonId)
+      .subscribe({
+        next: (trainer: Trainer) => {
+          this.loading = false;
+          this.isCatched = this.trainerService.isAlreadyCatched(this.pokemonId);
+        }, 
+        error: (error: HttpErrorResponse) => {
+          console.log("ERROR: ", error.message);
+        }
+      })
+      if (this.isCatched) {
+        alert("released!");
+      } else {
+        alert("catched!");  
       }
-    })
-    if (this.isCatched) {
-      alert("released!");
     } else {
-      alert("catched!");  
+      alert("sorry, something went wrong and you were logged out. please log back in");
+      this.router.navigateByUrl("/")
     }
+    
 }}

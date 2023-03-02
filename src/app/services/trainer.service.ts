@@ -11,8 +11,7 @@ export class TrainerService {
   private _trainer?: Trainer;
 
   get trainer(): Trainer | undefined {
-    // console.log("checked:", this._trainer)
-    return this._trainer;
+    return StorageUtil.sessionStorageRead<Trainer>(StorageKeys.Trainer);
   }
 
   set trainer(trainer: Trainer | undefined) {
@@ -23,6 +22,11 @@ export class TrainerService {
   constructor() { 
     this._trainer = StorageUtil.sessionStorageRead<Trainer>(StorageKeys.Trainer);
   }
+
+  clearTrainer() {
+    StorageUtil.sessionStorageRemove(StorageKeys.Trainer);
+  }
+
 
   // check if trainer already catched that pokemon
   public isAlreadyCatched(pokemonId: number): boolean {

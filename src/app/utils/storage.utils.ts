@@ -18,6 +18,17 @@ export class StorageUtil {
         }
     
     }
+
+    public static sessionStorageRemove<T>(key: string): T | undefined {
+      try {
+        sessionStorage.removeItem(key);
+        return undefined;
+      } catch (e) {
+        console.log(`${key} does not exist`)
+        return undefined;
+      }
+  
+  }
 }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/components/models/pokemon.model';
 import { PokeCatalogueService } from 'src/app/services/poke-catalogue.service';
+import { TrainerService } from 'src/app/services/trainer.service';
 
 @Component({
   selector: 'catalogue',
@@ -9,7 +10,7 @@ import { PokeCatalogueService } from 'src/app/services/poke-catalogue.service';
 })
 export class CataloguePage {
 
-  
+
 
   get pokemons(): Pokemon[] {
     return this.pokeService.pokemons;
@@ -26,7 +27,7 @@ export class CataloguePage {
 
 
   constructor(
-    private readonly pokeService: PokeCatalogueService,
+    private readonly pokeService: PokeCatalogueService
   ) { }
 
   ngOnInit(): void {
