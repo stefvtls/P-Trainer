@@ -9,7 +9,7 @@
         name="username" 
         id="username" 
         required 
-        minlength="2" 
+        minlength="3" 
         class="form-control transparent" placeholder="username"/>
     </fieldset>
 
@@ -17,6 +17,6 @@
     <div *ngIf="username.invalid && (username.dirty || username.touched)">
         <br>
         <div *ngIf="username.errors?.['required']"><p>Username is required </p> </div>
-        <div *ngIf="username.errors?.['minlength']"> <p>Your username has to be at least 2 characters </p></div>
+        <div *ngIf="username.errors?.['minlength']"> <p>Your username has to be at least 3 characters </p></div>
     </div>
 </form>

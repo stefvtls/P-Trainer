@@ -1,16 +1,31 @@
 # NgPokemonTrainer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+The project follows the guidelines provided in the Noroff assignment and includes the minimum requirements as described. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
 pokemon Trainer is a website where you can catch the pokemon that you like 
 
-## Development server
+
+## Setup on your local machine
+
+You can also set up this app on your own local machine. Follow this guide to set it up with your own json server.
+
+Clone the repository to your local machine.
+
+Set up your own json server here or contact @stefvtls to get the API key and url to use our json server.
+
+
+Add environment files with `ng generate environments` with following variables:
+
+
+`export const environment = {
+    production: false,
+    apiTrainers: < your api url >,
+    apiKey: < your api key >
+};`
+
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Built With
 
@@ -20,14 +35,26 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 • CSS
 
-• JavaScript
+• TypeScript
 
-• Angular, Angular Router, Context API
+• Angular, Angular Router
+
 
 ## Contributors
 
+Stefania van 't Laar-Sapór @stefvtls
+
 Sahil Mankani @sahilofficial97
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## License
+This project is licensed under the MIT License.
+
+
+## Acknowledgments
+Special thanks to the Noroff for providing the opportunity to develop this project.
+
+
+## Note
+This is a student project and it should not be used as a production-ready software.
