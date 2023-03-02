@@ -5,7 +5,7 @@ The project follows the guidelines provided in the Noroff assignment and include
 pokemon Trainer is a website where you can catch the pokemon that you like 
 
 ## Check out our deployed app
-You can check out our deployed app at Vercel [here]([https://p-trainer-uw6q.vercel.app/login])
+You can check out our deployed app at Vercel [here](https://p-trainer-uw6q.vercel.app/login)
 
 ## Setup on your local machine
 
