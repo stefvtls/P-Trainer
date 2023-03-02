@@ -1,0 +1,19 @@
+
+<nav class="navbar navbar-dark bg-dark sticky-top navbar-expand-lg">
+    <!-- <a class="navbar-brand" href="#"> -->
+        <!-- <img src="" width="30" height="30" alt=""> -->
+      <!-- </a> -->
+    <span class="navbar-brand mb-0 h1">PokeTrainer</span> 
+    <ng-container *ngIf="trainer !== undefined">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="/catalogue">Pokemon catalogue</a>
+              <a class="nav-item nav-link" href="/trainer">Trainer Profile</a>
+              <a class="nav-item nav-link" (click)="logout()">Log Out</a>
+            </div>
+        </div>
+    </ng-container>
+</nav>

@@ -1,0 +1,10 @@
+<div  *ngIf="pokemon" class="col">
+<div class="card" style="width: 14rem;">
+    <img [src]="pokemon.image" [alt]="pokemon.name" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title"> {{pokemon.name}} </h5>
+        <!-- <span class="card-text"> {{pokemon.url}} </span> -->
+
+        <add-pokemon-button [pokemonId]="pokemon.id"></add-pokemon-button>
+    </div>
+</div> 

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/components/models/pokemon.model';
+import { PokeCatalogueService } from 'src/app/services/poke-catalogue.service';
+import { TrainerService } from 'src/app/services/trainer.service';
 
 @Component({
   selector: 'catalogue',
@@ -6,5 +9,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./catalogue.page.css']
 })
 export class CataloguePage {
+
+
+
+  get pokemons(): Pokemon[] {
+    return this.pokeService.pokemons;
+  }
+
+  get loading(): boolean {
+    return this.pokeService.loading;
+  }
+
+  get error(): string {
+    return this.pokeService.error;
+  }
+
+
+
+  constructor(
+    private readonly pokeService: PokeCatalogueService
+  ) { }
+
+  ngOnInit(): void {
+    this.pokeService.findAllPokemon(); 
+  }
+
+
 
 }
