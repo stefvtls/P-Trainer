@@ -11,11 +11,13 @@ export class LandingPage {
   constructor(
     private readonly router: Router,
     private trainerService: TrainerService) {
+          // If a user is already logged in, redirect to catalogue page
     if (this.trainerService.trainer) {
       console.log("User logged in, redirecting to catalogue page...")
       this.handleLogin();
     }
   }
+    // Handles login and redirects to catalogue page
   handleLogin(): void {
     this.router.navigateByUrl("/catalogue")
   }

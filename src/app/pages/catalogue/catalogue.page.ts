@@ -11,15 +11,16 @@ import { TrainerService } from 'src/app/services/trainer.service';
 export class CataloguePage {
 
 
-
+  // Getter to get the list of all pokemons
   get pokemons(): Pokemon[] {
     return this.pokeService.pokemons;
   }
-
+  // Getter to get the loading status of the Pokemon Catalogue service
   get loading(): boolean {
     return this.pokeService.loading;
   }
 
+  // Getter to get the error message from the Pokemon Catalogue service
   get error(): string {
     return this.pokeService.error;
   }
@@ -30,6 +31,7 @@ export class CataloguePage {
     private readonly pokeService: PokeCatalogueService
   ) { }
 
+    // Initializes the Pokemon Catalogue page by calling the findAllPokemon method of the PokeCatalogueService
   ngOnInit(): void {
     this.pokeService.findAllPokemon(); 
   }

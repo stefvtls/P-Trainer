@@ -22,18 +22,21 @@ export class CatchedService {
   ) {}
 
   public saveCatchedPokemon(pokemonId: number): Observable<Trainer> {
-    
+        // Check if the trainer exists in the database
     if (!this.trainerService.trainer) {
       throw new Error("the trainer does not exist in our database");
     } 
-
+        // Get the trainer object
     let trainer: Trainer = this.trainerService.trainer;
+        // Get the pokemon object by id from the pokeCatalogue service
     const pokemon: Pokemon | undefined = this.pokeCatalogue.pokemonById(pokemonId);
 
+        // Throw an error if the pokemon does not exist
     if (!pokemon) {
       throw new Error("this pokemon does not exist");
     }
 
+        // Check if the pokemon is already caught, if it is, release it, otherwise, catch it
     if (this.trainerService.isAlreadyCatched(pokemonId)) {
       this.trainerService.releasePokemon(pokemonId);
 
@@ -41,13 +44,14 @@ export class CatchedService {
       this.trainerService.catchPokemon(pokemon);
     }
 
+        // Set the http headers with the api key
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
       "x-api-key": apiKey as string
     })
 
 
-    // this._loading = true;
+    // Send a PATCH request to update the trainer's caught pokemon list on the server
     return this.http.patch<Trainer>(
       `${apiTrainers}/${trainer.id}`,
       {pokemon: [...trainer.pokemon]}, //updated trainer
