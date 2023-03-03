@@ -1,7 +1,7 @@
 export class StorageUtil {
 
     public static sessionStorageSave<T>(key: string, value: any): void {
-        console.log(key, value)
+        // console.log(key, value)
         sessionStorage.setItem(key, JSON.stringify(value));
     }
     
