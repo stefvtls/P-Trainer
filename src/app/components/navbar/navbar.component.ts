@@ -10,15 +10,19 @@ import { Trainer } from '../models/trainer.model';
 })
 export class NavbarComponent {
 
+  
+  // retrieves the current logged-in trainer from TrainerService
   get trainer(): Trainer | undefined {
     return this.trainerService.trainer;
   }
 
+  
   constructor(
     private readonly trainerService: TrainerService,
     private readonly router: Router
     ) {}
 
+  // logs out the current trainer by resetting the trainer data in TrainerService and navigates to login page
   logout() {
     this.trainerService.trainer = undefined;
     this.trainerService.clearTrainer();

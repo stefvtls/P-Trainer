@@ -47,7 +47,6 @@ export class PokeCatalogueService {
       return;
     }
 
-  
 
 
     this._loading = true;
@@ -60,6 +59,7 @@ export class PokeCatalogueService {
     .subscribe({
       next: (response => {
         // console.log(response.results);
+        // Parse response to extract required data
           this._pokemons  = response.results.map(poke => {
           let urlArraySplitted = poke.url.split("/");
           let extractedId = Number(urlArraySplitted[(urlArraySplitted.length) - 2]);
@@ -72,6 +72,7 @@ export class PokeCatalogueService {
           
           return pokemon;
         })
+        // Save fetched data to session storage
         StorageUtil.sessionStorageSave<Pokemon[]>(StorageKeys.Pokemons, this._pokemons);
       }),
       error: (error: HttpErrorResponse) => {
@@ -79,7 +80,7 @@ export class PokeCatalogueService {
       }
     })
   }
-
+  // Return pokemon by id from the pokemons array
   public pokemonById(id: number): Pokemon | undefined {
     return this._pokemons.find((pokemon: Pokemon ) => pokemon.id === id);
   }

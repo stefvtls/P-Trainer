@@ -13,16 +13,14 @@ import { Trainer } from '../models/trainer.model';
 })
 export class AddPokemonButtonComponent {
 
+    // Declaring necessary properties
   public loading: boolean = false;
-
   public isCatched: boolean = false;
 
   @Input() pokemonId!: number;
 
-  // get loading(): boolean {
-  //   return this.catchedService.loading;
-  // }
 
+    // Injecting necessary services
   constructor(
     private readonly catchedService: CatchedService,
     private readonly trainerService: TrainerService,
@@ -35,7 +33,7 @@ export class AddPokemonButtonComponent {
     this.isCatched = this.trainerService.isAlreadyCatched(this.pokemonId);
   }
 
-  // display a message if pokemon has been caught and saved 
+  // display a message if pokemon has been caught/released and saved 
   addPokemon(): void {
     this.loading = true;
     if (this.trainerService.trainer) {
